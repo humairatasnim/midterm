@@ -1,0 +1,102 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: white;
+}
+
+.single_item_order{
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
+
+.incoming_orders h2{
+  border-bottom: 1px lightgrey solid;
+  margin: 0px;
+  padding: 10px;
+}
+
+main{
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+width: 80%;
+}
+
+/* ORDERS INCOMING */
+.incoming {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  border: solid 2px lightgrey;
+  background-color: white;
+  border-radius: 15px;
+  padding:8px;
+  margin:10px;
+}
+
+.incoming_orders {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 5px;
+}
+
+.order_box {
+  display: flex;
+  flex-direction: column;
+
+  border: solid 1px lightgrey;
+  border-radius: 15px;
+  padding: 5px;
+  margin: 5px;
+  width: 400px;
+}
+
+.etc{
+font-size: medium;
+border-top: solid 1px lightgrey;
+margin: 5px;
+padding:10px;
+}
+
+.atc{
+  font-size: medium;
+  margin: 5px;
+  padding:10px;
+}
+
+/* BUTTONS */
+.accept{
+background-color: black;
+color: white;
+border-radius: 7px;
+margin: 5px;
+padding: 8px;
+width: 100%;
+}
+
+.reject{
+  background-color: white;
+  color: black;
+  border-radius: 7px;
+  margin: 5px;
+  padding: 8px;
+  width: 100%;
+}
+
+/* ORDER QUANTITY EFFECT */
+.quantity{
+  border-radius: 50%;
+  padding: 5px;
+  background-color: rgb(197, 197, 197);
+  text-align: center;
+  width: 30px;
+  margin: 5px;
+}
+
+

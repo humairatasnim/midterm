@@ -39,6 +39,11 @@ const usersRoutes = require('./routes/users');
 app.use('/api/users', userApiRoutes);
 app.use('/api/widgets', widgetApiRoutes);
 app.use('/users', usersRoutes);
+
+app.get('/restaurant', (req, res) => {
+  res.render('restaurant');
+ });
+
 // Note: mount other resources here, using the same pattern above
 
 // Home page
