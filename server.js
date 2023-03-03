@@ -7,11 +7,12 @@ const { addOrderListToDB } = require("./db/queries/menu_queries");
 const sassMiddleware = require("./lib/sass-middleware");
 const express = require("express");
 const morgan = require("morgan");
-const cookieParser = require("cookie-parser");
+
 const PORT = process.env.PORT || 8080;
 const app = express();
-
-app.set("view engine", "ejs");
+const cookieParser = require("cookie-parser");
+app.use(cookieParser());
+app.set('view engine', 'ejs');
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
