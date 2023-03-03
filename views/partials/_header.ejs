@@ -1,8 +1,7 @@
 <header>
   <div class="left-header">
     <span class="logo-img">
-      <img src="/images/logo.png" width="150px" height="86px"
-    /></span>
+      <img src="/images/logo.png" width="150px" height="86px" /></span>
     <div class="nav-bar">
       <h3><a href="#nav-1">About</a></h3>
       <h3><a href="#nav-2">Contact us</a></h3>
@@ -10,6 +9,13 @@
     </div>
   </div>
   <div class="right-header">
-    <button class="rounded-button">Login</button>
+    <div class="email">
+      <label for="email">Email:</label>
+      <input class="form-control" type="email" name="email" placeholder="example@example.com" />
+    </div>
+
+    <form class="login_form" action="/login" method="GET">
+      <button class="rounded-button" data-attribute="false" type ="button" >Login</button>
+    </form>
   </div>
 </header>

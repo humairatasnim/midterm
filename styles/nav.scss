@@ -35,6 +35,15 @@ font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans
   margin: 1em;
 }
 
+placeholder{
+width: 300px;
+margin: 3px;
+}
+
+.email{
+  display: none;
+}
+
 .rounded-button {
   width: 100px;
   border-radius: 50px;

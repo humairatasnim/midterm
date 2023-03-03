@@ -1,5 +1,6 @@
 // load .env data into process.env
-require("dotenv").config();
+require('dotenv').config();
+const checkMemberEmail = require("./db/database");
 const db = require("./db/connection");
 const { addOrderListToDB } = require("./db/queries/menu_queries");
 // Web server config
@@ -57,30 +58,29 @@ app.get("/", (req, res) => {
   res.render("homepage");
 });
 
-// app.post('/api/order', (req, res) => {
-//   const clientid = 1
-//   addOrderListToDB(clientid)
-//     .then((result) => {
-//       const orderId = result.rows[0].id;
-//       res.status(201).json({ id: orderId });
-//     })
-//     .catch((err) => {
-//       res.status(500).json({ error: err.message });
-//     });
-// });
-
 app.post("/api/order", (req, res) => {
   const { orderList } = req.body;
-  // const clientId = req.cookies.userId
-  // console.log(req.body.orderList, "uuuuuuu")
+  const clientId = req.cookies.userId
 
   addOrderListToDB(orderList).then((response) => {
-    console.log("jkjkjkj", response);
+    console.log(response);
   });
 
-  // console.log('from server.js', orderList, clientId)
 });
 
+app.get('/login', (req, res) => {
+
+  res.render('homepage');
+});
+
+ app.post('/login', (req, res) => {
+   checkMemberEmail(req.body.emailVal)
+     .then((result) => {
+       res.json(result.id);
+
+     })
+
+ });
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
