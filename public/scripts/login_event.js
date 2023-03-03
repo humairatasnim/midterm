@@ -10,8 +10,11 @@ $(document).ready(function() {
         .then((id) => {
           if (id === 2) {
             window.location.href='http://localhost:8080/restaurant';
-           }
-          window.location.href = 'http://localhost:8080/menu';
+          }
+          if (id === 1) {
+            window.location.href = 'http://localhost:8080/menu';
+          }
+
         })
 
       return;

@@ -4,7 +4,6 @@ const checkMemberEmail = function(email) {
   return db
   .query(`SELECT * FROM clients WHERE email = $1`, [email])
   .then((result) => {
-    console.log(result);
     return result.rows[0] || null
   })
   .catch((err) => {

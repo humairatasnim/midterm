@@ -68,19 +68,13 @@ app.post("/api/order", (req, res) => {
 
 });
 
-app.get('/login', (req, res) => {
-
-  res.render('homepage');
-});
-
  app.post('/login', (req, res) => {
    checkMemberEmail(req.body.emailVal)
      .then((result) => {
        res.json(result.id);
-
      })
-
  });
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });

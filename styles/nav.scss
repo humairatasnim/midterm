@@ -3,7 +3,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 10vh;
+  height: 15vh;
   background-color: rgba(229, 207, 202, 0.854);
   font-size: large;
   position: fixed;
@@ -32,15 +32,20 @@ font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans
 }
 
 .right-header{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
   margin: 1em;
 }
 
-placeholder{
-width: 300px;
+.form-control{
+width: 200px;
 margin: 3px;
 }
 
 .email{
+  margin: 4px;
   display: none;
 }
 

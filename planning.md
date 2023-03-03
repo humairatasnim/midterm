@@ -37,5 +37,11 @@ GET /orders
 PATCH /orders/:id
 
 
+### Button Routes 
+
+* post/login
+  GET menu
+  GET restaurant 
+
 ### Wireframes
 [Figma Link](https://www.figma.com/file/nkLKogYBxEIKmlWt9HJhKC/Midterm---Wireframes?node-id=0%3A1&t=DbaPlRRuWrCrxGaa-1)
