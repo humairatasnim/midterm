@@ -30,7 +30,7 @@
       <h2>Incoming Orders</h2>
       <div class="orders">
         <% for (const order of orders) { %>
-          <% if (order.order_status === true && order.order_approved === null) { %>
+          <% if (order.order_status && order.order_approved === null) { %>
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title"><%= order.client %></h5>
@@ -39,7 +39,8 @@
               <div class="card-footer">
                 <p>Enter estimated completion time:</p>
                 <form method="post" action="/orders">
-                  <select>
+                  <input type="hidden" name="order_id" value="<%= order.id %>" />
+                  <select name="est_time">
                     <option value="10" selected>10</option>
                     <option value="20">20</option>
                     <option value="30">30</option>
@@ -47,7 +48,10 @@
                   </select>
                   <span>mins</span>
                   <button type="submit" class="btn btn-primary accept-order-btn">Accept order</button>
-                  <button type="button" class="btn btn-primary-outline reject-order-btn">Reject order</button>
+                </form>
+                <form method="post" action="/orders">
+                  <input type="hidden" name="order_id" value="<%= order.id %>" />
+                  <button type="submit" class="btn btn-primary-outline reject-order-btn" name="reject" value="true">Reject order</button>
                 </form>
               </div>
             </div>
@@ -59,7 +63,7 @@
       <h2>Orders In Progress</h2>
       <div class="orders">
         <% for (const order of orders) { %>
-          <% if (order.order_status === true && order.order_approved && order.order_completed === null) { %>
+          <% if (order.order_status && order.order_approved && order.order_completed === null) { %>
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title"><%= order.client %></h5>
@@ -67,7 +71,10 @@
               </div>
               <div class="card-footer">
                 <p>Estimated completion time: <%= order.estimated_time %> mins</p>
-                <button type="button" class="btn btn-primary accept-order-btn">Complete order</button>
+                <form method="post" action="/orders">
+                  <input type="hidden" name="order_id" value="<%= order.id %>" />
+                  <button type="submit" class="btn btn-primary accept-order-btn" name="complete" value="true">Complete order</button>
+                </form>
               </div>
             </div>
           <% } %>
@@ -78,7 +85,7 @@
       <h2>Completed Orders</h2>
       <div class="orders">
         <% for (const order of orders) { %>
-          <% if (order.order_status === true && order.order_completed) { %>
+          <% if (order.order_status && order.order_approved && order.order_completed) { %>
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title"><%= order.client %></h5>
