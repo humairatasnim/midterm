@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const checkMemberEmail = require("../db/database");
+const checkMemberId = require("../db/login-database");
 
 router.post('/', (req, res) => {
-  checkMemberEmail(req.body.emailVal)
+  checkMemberId(req.body.idVal)
     .then((result) => {
       res.cookie("userId", result.id);
       res.json(result.id);

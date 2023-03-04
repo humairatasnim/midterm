@@ -3,10 +3,10 @@ $(document).ready(function() {
   $(".rounded-button").click(function(event) {
     event.preventDefault();
     if ($(".rounded-button").data("attribute") === "true") {
-      const emailVal = $(".form-control").val()
-      console.log(emailVal);
+      const idVal = $(".form-control").val()
+      console.log(idVal);
 
-      $.post("/login", { emailVal })
+      $.post("/login", { idVal })
         .then((id) => {
           if (id === 2) {
             window.location.href='http://localhost:8080/restaurant';
@@ -21,7 +21,7 @@ $(document).ready(function() {
     }
 
     console.log("clicked once");
-    $(".email").slideDown();
+    $(".id").slideDown();
     $(".rounded-button").data("attribute", "true");
     $(".rounded-button").prop("type", "submit");
   });

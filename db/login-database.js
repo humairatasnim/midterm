@@ -1,8 +1,8 @@
 const db  = require("./connection");
 
-const checkMemberEmail = function(email) {
+const checkMemberId = function(id) {
   return db
-  .query(`SELECT * FROM clients WHERE email = $1`, [email])
+  .query(`SELECT * FROM clients WHERE id = $1`, [id])
   .then((result) => {
     return result.rows[0] || null
   })
@@ -12,4 +12,4 @@ const checkMemberEmail = function(email) {
 
 };
 
-module.exports = checkMemberEmail;
+module.exports = checkMemberId;
