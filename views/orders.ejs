@@ -27,8 +27,8 @@
   <main>
 
     <section class="section-orders">
-      <h2>Incoming Orders</h2>
-      <div class="orders">
+      <h2 id="incoming-header">Incoming Orders</h2>
+      <div class="orders" id="incoming">
         <% for (const order of orders) { %>
           <% if (order.order_status && order.order_approved === null) { %>
             <div class="card">
@@ -60,8 +60,8 @@
       </div>
     </section>
     <section class="section-orders">
-      <h2>Orders In Progress</h2>
-      <div class="orders">
+      <h2 id="inprogress-header">Orders In Progress</h2>
+      <div class="orders" id="inprogress">
         <% for (const order of orders) { %>
           <% if (order.order_status && order.order_approved && order.order_completed === null) { %>
             <div class="card">
@@ -82,8 +82,8 @@
       </div>
     </section>
     <section class="section-orders">
-      <h2>Completed Orders</h2>
-      <div class="orders">
+      <h2 id="completed-header">Completed Orders</h2>
+      <div class="orders" id="completed">
         <% for (const order of orders) { %>
           <% if (order.order_status && order.order_approved && order.order_completed) { %>
             <div class="card">
@@ -102,5 +102,28 @@
     </section>
   </main>
 
+  <script>
+    $(document).ready(function() {
+
+      var count_incoming = document.getElementById('incoming').childElementCount;
+      document.getElementById('incoming-header').innerHTML = 'Incoming Orders (' + count_incoming + ')';
+      if (count_incoming === 0) {
+        document.getElementById('incoming').innerHTML = 'You have no incoming orders.';
+      }
+
+      var count_inprogress = document.getElementById('inprogress').childElementCount;
+      document.getElementById('inprogress-header').innerHTML = 'Orders In Progress (' + count_inprogress + ')';
+      if (count_inprogress === 0) {
+        document.getElementById('inprogress').innerHTML = 'You have no orders in progress.';
+      }
+
+      var count_completed = document.getElementById('completed').childElementCount;
+      document.getElementById('completed-header').innerHTML = 'Completed Orders (' + count_completed + ')';
+      if (count_completed === 0) {
+        document.getElementById('completed').innerHTML = 'You have no completed orders.';
+      }
+
+    });
+  </script>
 </body>
 </html>
