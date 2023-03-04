@@ -17,6 +17,14 @@
   padding: 1.5em;
 }
 
+.card-footer {
+  background-color: #fff;
+  border-top: 0;
+  border-bottom-left-radius: 12px !important;
+  border-bottom-right-radius: 12px !important;
+  padding: 0 1.5em 1.5em 1.5em;
+}
+
 .btn {
   border-radius: 12px;
 }
@@ -69,14 +77,6 @@ main {
 .dishes .card {
   width: 48%;
   margin-bottom: 2em;
-}
-
-.dishes .card-footer {
-  background-color: #fff;
-  border-top: 0;
-  border-bottom-left-radius: 12px;
-  border-bottom-right-radius: 12px;
-  padding: 0 1.5em 1.5em 1.5em;
 }
 
 .add-order-btn, .order-now-btn {

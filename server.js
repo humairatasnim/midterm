@@ -37,8 +37,12 @@ const userApiRoutes = require('./routes/users-api');
 const widgetApiRoutes = require('./routes/widgets-api');
 const usersRoutes = require('./routes/users');
 const menuRoutes = require('./routes/menu');
+<<<<<<< HEAD
 const restaurantRoutes = require('./routes/restaurant');
 const loginRoutes = require('./routes/login');
+=======
+const orderRoutes = require('./routes/orders');
+>>>>>>> 53efe88 (Render orders from database)
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -47,14 +51,23 @@ app.use('/api/users', userApiRoutes);
 app.use('/api/widgets', widgetApiRoutes);
 app.use('/users', usersRoutes);
 
+<<<<<<< HEAD
 app.get("/restaurant", (req, res) => {
   res.render("restaurant");
+=======
+app.get('/restaurant', (req, res) => {
+  res.render('restaurant');
+>>>>>>> 53efe88 (Render orders from database)
 });
 
 // Note: mount other resources here, using the same pattern above
 app.use('/menu', menuRoutes);
+<<<<<<< HEAD
 app.use('/restaurant', restaurantRoutes);
 app.use('/login', loginRoutes);
+=======
+app.use('/orders', orderRoutes);
+>>>>>>> 53efe88 (Render orders from database)
 
 // Home page
 // Warning: avoid creating more routes in this file!

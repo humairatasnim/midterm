@@ -1,0 +1,49 @@
+#orders-page main {
+  flex-direction: column;
+}
+
+.section-orders {
+  width: 100%;
+  background-color: #fff;
+  padding: 2em;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  margin-bottom: 1.5em;
+}
+
+.section-orders h2 {
+  margin-bottom: 1em;
+}
+
+.orders {
+  display: flex;
+}
+
+.orders .card {
+  width: 30%;
+  margin-right: 1.5em;
+}
+
+.orders .card-body {
+  padding-bottom: 0;
+}
+
+.accept-order-btn, .reject-order-btn {
+  width: 100%;
+  padding-top: 11px;
+  padding-bottom: 11px;
+  border-color: #333;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.accept-order-btn {
+  margin-top: 1.5em;
+  background: #333;
+}
+
+.reject-order-btn {
+  margin-top: 1em;
+  background: #fff;
+}
