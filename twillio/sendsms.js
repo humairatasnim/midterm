@@ -1,29 +1,30 @@
 const twilio = require('twilio');
+require('dotenv').config();
 
-const accountSid = 'ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'; // Your Account SID from www.twilio.com/console
-const authToken = 'your_auth_token'; // Your Auth Token from www.twilio.com/console
+const accountSid = process.env.TWILLIO_SID; // Your Account SID from www.twilio.com/console
+const authToken = process.env.AUTH_TOKEN; // Your Auth Token from www.twilio.com/console
 
 const client = require('twilio')(accountSid, authToken);
 
 const orderCreated = function() {
   client.messages
   .create({
-    body: 'Hello from twilio-node',
-    to: '+12345678901', // Text this number
-    from: '+12345678901', // From a valid Twilio number
+    body: 'Your order is being prepared',
+    to: process.env.CLIENT_PH_NUM, // Text this number
+    from: process.env.TWILLIO_PH_NUM, // From a valid Twilio number
   })
   .then((message) => console.log(message.sid));
 };
-// orderCreated();
+
 
 
 const orderReady = function() {
   client.messages
   .create({
-    body: 'Hello from twilio-node',
-    to: '+12345678901', // Text this number
-    from: '+12345678901', // From a valid Twilio number
+    body: 'your order is ready for pick up',
+    to: process.env.CLIENT_PH_NUM, // Text this number
+    from: process.env.TWILLIO_PH_NUM, // From a valid Twilio number
   })
   .then((message) => console.log(message.sid));
 };
-// orderReady();
+
