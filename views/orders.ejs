@@ -35,8 +35,19 @@
               <div class="card-body">
                 <h5 class="card-title"><%= order.client %></h5>
                 <hr/>
+                <% for (const dish of order.dishes) { %>
+                  <div class="order-list-item">
+                    <div class="order-item">
+                      <i class="bi bi-<%= dish.quantity %>-circle-fill item-count"></i> <%= dish.name %>
+                    </div>
+                    <div class="order-price">
+                      <strong>$<%= dish.price * dish.quantity %></strong>
+                    </div>
+                  </div>
+                <% } %>
               </div>
               <div class="card-footer">
+                <hr/>
                 <p>Enter estimated completion time:</p>
                 <form method="post" action="/orders">
                   <input type="hidden" name="order_id" value="<%= order.id %>" />
@@ -59,6 +70,7 @@
         <% } %>
       </div>
     </section>
+
     <section class="section-orders">
       <h2 id="inprogress-header">Orders In Progress</h2>
       <div class="orders" id="inprogress">
@@ -68,8 +80,19 @@
               <div class="card-body">
                 <h5 class="card-title"><%= order.client %></h5>
                 <hr/>
+                <% for (const dish of order.dishes) { %>
+                  <div class="order-list-item">
+                    <div class="order-item">
+                      <i class="bi bi-<%= dish.quantity %>-circle-fill item-count"></i> <%= dish.name %>
+                    </div>
+                    <div class="order-price">
+                      <strong>$<%= dish.price * dish.quantity %></strong>
+                    </div>
+                  </div>
+                <% } %>
               </div>
               <div class="card-footer">
+                <hr/>
                 <p>Estimated completion time: <%= order.estimated_time %> mins</p>
                 <form method="post" action="/orders">
                   <input type="hidden" name="order_id" value="<%= order.id %>" />
@@ -81,6 +104,7 @@
         <% } %>
       </div>
     </section>
+
     <section class="section-orders">
       <h2 id="completed-header">Completed Orders</h2>
       <div class="orders" id="completed">
@@ -90,8 +114,19 @@
               <div class="card-body">
                 <h5 class="card-title"><%= order.client %></h5>
                 <hr/>
+                <% for (const dish of order.dishes) { %>
+                  <div class="order-list-item">
+                    <div class="order-item">
+                      <i class="bi bi-<%= dish.quantity %>-circle-fill item-count"></i> <%= dish.name %>
+                    </div>
+                    <div class="order-price">
+                      <strong>$<%= dish.price * dish.quantity %></strong>
+                    </div>
+                  </div>
+                <% } %>
               </div>
               <div class="card-footer">
+                <hr/>
                 <p>Estimated completion time: <%= order.estimated_time %> mins</p>
                 <p>Actual completion time: <%= order.order_completed.getMinutes() - order.order_placed.getMinutes() %> mins</p>
               </div>
@@ -100,6 +135,7 @@
         <% } %>
       </div>
     </section>
+
   </main>
 
   <script>
