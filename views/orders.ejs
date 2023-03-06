@@ -24,14 +24,14 @@
 <body id="orders-page">
   <header></header>
 
-  <main>
+  <div class="container">
 
-    <section class="section-orders">
+    <section class="row orders-section">
       <h2 id="incoming-header">Incoming Orders</h2>
       <div class="orders" id="incoming">
         <% for (const order of orders) { %>
           <% if (order.order_status && order.order_approved === null) { %>
-            <div class="card">
+            <div class="card col-md-3">
               <div class="card-body">
                 <h5 class="card-title"><%= order.client %></h5>
                 <hr/>
@@ -47,22 +47,22 @@
                 <% } %>
               </div>
               <div class="card-footer">
-                <hr/>
-                <p>Enter estimated completion time:</p>
+                <p class="est-time">Enter estimated completion time:</p>
                 <form method="post" action="/orders">
                   <input type="hidden" name="order_id" value="<%= order.id %>" />
-                  <select name="est_time">
-                    <option value="10" selected>10</option>
-                    <option value="20">20</option>
-                    <option value="30">30</option>
-                    <option value="40">40</option>
-                  </select>
-                  <span>mins</span>
-                  <button type="submit" class="btn btn-primary accept-order-btn">Accept order</button>
+                  <div class="est-time-input">
+                    <select name="est_time" class="form-select">
+                      <option value="10" selected>10 mins</option>
+                      <option value="20">20 mins</option>
+                      <option value="30">30 mins</option>
+                      <option value="40">40 mins</option>
+                    </select>
+                  </div>
+                  <button type="submit" class="btn btn-primary accept-btn">Accept order</button>
                 </form>
                 <form method="post" action="/orders">
                   <input type="hidden" name="order_id" value="<%= order.id %>" />
-                  <button type="submit" class="btn btn-primary-outline reject-order-btn" name="reject" value="true">Reject order</button>
+                  <button type="submit" class="btn btn-primary-outline reject-btn" name="reject" value="true">Reject order</button>
                 </form>
               </div>
             </div>
@@ -71,12 +71,12 @@
       </div>
     </section>
 
-    <section class="section-orders">
+    <section class="row orders-section">
       <h2 id="inprogress-header">Orders In Progress</h2>
       <div class="orders" id="inprogress">
         <% for (const order of orders) { %>
           <% if (order.order_status && order.order_approved && order.order_completed === null) { %>
-            <div class="card">
+            <div class="card col-md-3">
               <div class="card-body">
                 <h5 class="card-title"><%= order.client %></h5>
                 <hr/>
@@ -92,11 +92,10 @@
                 <% } %>
               </div>
               <div class="card-footer">
-                <hr/>
-                <p>Estimated completion time: <%= order.estimated_time %> mins</p>
+                <p class="est-time">Estimated completion time: <%= order.estimated_time %> mins</p>
                 <form method="post" action="/orders">
                   <input type="hidden" name="order_id" value="<%= order.id %>" />
-                  <button type="submit" class="btn btn-primary accept-order-btn" name="complete" value="true">Complete order</button>
+                  <button type="submit" class="btn btn-primary complete-btn" name="complete" value="true">Mark as complete</button>
                 </form>
               </div>
             </div>
@@ -105,12 +104,12 @@
       </div>
     </section>
 
-    <section class="section-orders">
+    <section class="row orders-section">
       <h2 id="completed-header">Completed Orders</h2>
       <div class="orders" id="completed">
         <% for (const order of orders) { %>
           <% if (order.order_status && order.order_approved && order.order_completed) { %>
-            <div class="card">
+            <div class="card col-md-3">
               <div class="card-body">
                 <h5 class="card-title"><%= order.client %></h5>
                 <hr/>
@@ -126,9 +125,14 @@
                 <% } %>
               </div>
               <div class="card-footer">
-                <hr/>
-                <p>Estimated completion time: <%= order.estimated_time %> mins</p>
-                <p>Actual completion time: <%= order.order_completed.getMinutes() - order.order_placed.getMinutes() %> mins</p>
+                <p class="est-time">Estimated completion time: <%= order.estimated_time %> mins</p>
+                <p class="act-time">Actual completion time:
+                  <% if (Math.round((order.order_completed - order.order_approved) / 60000) === 1) { %>
+                    <%= Math.round((order.order_completed - order.order_approved) / 60000); %> min
+                  <% } else { %>
+                    <%= Math.round((order.order_completed - order.order_approved) / 60000); %> mins
+                  <% } %>
+                </p>
               </div>
             </div>
           <% } %>

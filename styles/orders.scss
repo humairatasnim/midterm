@@ -1,34 +1,9 @@
-#orders-page main {
-  flex-direction: column;
+#orders-page .container {
+  position: relative;
+  top: -100px;
 }
 
-.section-orders {
-  width: 100%;
-  background-color: #fff;
-  padding: 2em;
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  margin-bottom: 1.5em;
-}
-
-.section-orders h2 {
-  margin-bottom: 1em;
-}
-
-.orders {
-  display: flex;
-}
-
-.orders .card {
-  width: 30%;
-  margin-right: 1.5em;
-}
-
-.orders .card-body {
-  padding-bottom: 0;
-}
-
-.accept-order-btn, .reject-order-btn {
+#orders-page .btn {
   width: 100%;
   padding-top: 11px;
   padding-bottom: 11px;
@@ -36,14 +11,58 @@
   font-size: 1rem;
   font-weight: bold;
   text-transform: uppercase;
-}
-
-.accept-order-btn {
-  margin-top: 1.5em;
   background: #333;
 }
 
-.reject-order-btn {
+#orders-page .card-footer {
+  border-bottom-left-radius: 12px !important;
+  border-bottom-right-radius: 12px !important;
+  padding: 1.5em 1.5em 1.5em 1.5em;
+}
+
+#orders-page .card-footer p {
+  font-size: 0.875rem;
+}
+
+.orders-section {
+  background-color: #fff;
+  padding: 2em;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  margin-bottom: 1.5em;
+}
+
+.orders-section h2 {
+  margin-bottom: 1em;
+}
+
+.orders {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.orders .card {
+  margin-right: 1em;
+  margin-bottom: 1em;
+}
+
+.accept-btn {
+  margin-top: 1.5em;
+}
+
+.reject-btn {
   margin-top: 1em;
-  background: #fff;
+  background: #fff !important;
+}
+
+.complete-btn {
+  margin-top: 1em;
+}
+
+.est-time {
+  margin-bottom: 0.5rem;
+}
+
+.act-time {
+  margin-bottom: 0rem;
 }
