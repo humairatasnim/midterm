@@ -9,7 +9,7 @@ $(document).ready(function() {
       $.post("/login", { idVal })
         .then((id) => {
           if (id === 2) {
-            window.location.href='http://localhost:8080/restaurant';
+            window.location.href='http://localhost:8080/orders';
           }
           if (id === 1) {
             window.location.href = 'http://localhost:8080/menu';

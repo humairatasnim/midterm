@@ -6,16 +6,25 @@ const authToken = process.env.AUTH_TOKEN; // Your Auth Token from www.twilio.com
 
 const client = require('twilio')(accountSid, authToken);
 
-const orderCreated = function() {
+const orderPlaced = function() {
   client.messages
   .create({
-    body: 'Your order is being prepared',
+    body: 'A new order has been placed',
     to: process.env.CLIENT_PH_NUM, // Text this number
     from: process.env.TWILLIO_PH_NUM, // From a valid Twilio number
   })
   .then((message) => console.log(message.sid));
 };
 
+const orderCreated = function() {
+  client.messages
+  .create({
+    body: 'Your order will be ready in 20 mins',
+    to: process.env.CLIENT_PH_NUM, // Text this number
+    from: process.env.TWILLIO_PH_NUM, // From a valid Twilio number
+  })
+  .then((message) => console.log(message.sid));
+};
 
 
 const orderReady = function() {
