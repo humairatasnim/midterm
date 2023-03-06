@@ -26,7 +26,7 @@ const addOrderListToDB = (orderList) => {
   BEGIN;
   WITH inserted_row AS (
     INSERT INTO orders (client_id, order_placed)
-    VALUES (6, NOW())
+    VALUES (, NOW())
     RETURNING id
     )
     INSERT INTO order_dishes (order_id, dish_id, quantity)

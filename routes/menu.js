@@ -3,7 +3,8 @@ const router = express.Router();
 const { getMenu } = require("../db/queries/menu_queries");
 
 router.get("/", (req, res) => {
-  const clientId = 1;
+  // const clientId = 1;
+  const clientId = req.cookies.user;
   getMenu()
     .then((response) => {
       res.render("menu", { dishes: response.rows, clientId: clientId });
