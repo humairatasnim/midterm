@@ -141,7 +141,6 @@ $(document).ready(function () {
     ////Function to delete the order
     console.log("orderrrr", orderList);
     const deleteOrder = orderList.filter((item) => item.title !== itemName);
-    console.log("gooooaaaaa", deleteOrder);
     orderList = deleteOrder;
     renderOrderList(orderList);
     $("#total-button").text(`Order now • $ ${addTotal(orderList)}.00 `);
@@ -150,11 +149,12 @@ $(document).ready(function () {
 
   ////POST request to send the
   $(document).on("click", "#total-button", function () {
-    console.log("CLICKED!!!!!");
     const $clientid = Number($(this).data("client-id"));
-    console.log("CLTID", $clientid);
+    // console.log("CLTID", $clientid);
+
+    //When empty items are added to the basket, send an error block
     if (orderList.length === 0) {
-      $(this).parent().find("#order-err").css("display", "block");
+      $(this).parent().find("#order-err").css("display", "block").fadeOut(5000);
     } else if (!$clientid) {
       $(this).parent().find("#order-err").css("display", "none");
       $(this).parent().find("#login-err").css("display", "block");

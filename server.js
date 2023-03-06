@@ -10,7 +10,7 @@ const morgan = require("morgan");
 
 const PORT = process.env.PORT || 8080;
 const app = express();
-app.set('view engine', 'ejs');
+app.set("view engine", "ejs");
 
 //cookie parser
 const cookieParser = require("cookie-parser");
@@ -33,27 +33,28 @@ app.use(express.static("public"));
 app.use(cookieParser());
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
-const userApiRoutes = require('./routes/users-api');
-const widgetApiRoutes = require('./routes/widgets-api');
-const usersRoutes = require('./routes/users');
-const menuRoutes = require('./routes/menu');
-const orderRoutes = require('./routes/orders');
+const userApiRoutes = require("./routes/users-api");
+const widgetApiRoutes = require("./routes/widgets-api");
+const usersRoutes = require("./routes/users");
+const menuRoutes = require("./routes/menu");
+const orderRoutes = require("./routes/orders");
+const loginRoutes = require("./routes/login");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
-app.use('/api/users', userApiRoutes);
-app.use('/api/widgets', widgetApiRoutes);
-app.use('/users', usersRoutes);
+app.use("/api/users", userApiRoutes);
+app.use("/api/widgets", widgetApiRoutes);
+app.use("/users", usersRoutes);
 
 app.get("/restaurant", (req, res) => {
   res.render("restaurant");
 });
 
 // Note: mount other resources here, using the same pattern above
-app.use('/menu', menuRoutes);
-app.use('/orders', orderRoutes);
-app.use('/login', loginRoutes);
+app.use("/menu", menuRoutes);
+app.use("/orders", orderRoutes);
+app.use("/login", loginRoutes);
 
 // Home page
 // Warning: avoid creating more routes in this file!
@@ -65,14 +66,13 @@ app.get("/", (req, res) => {
 
 app.post("/api/order", (req, res) => {
   const { orderList } = req.body;
-  const clientId = req.cookies.userId
+  const clientId = req.cookies.userId;
 
   addOrderListToDB(orderList, clientId).then((response) => {
     console.log(response);
   });
 
 });
-
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
