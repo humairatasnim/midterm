@@ -1,6 +1,5 @@
 // load .env data into process.env
 require('dotenv').config();
-const checkMemberEmail = require("./db/database");
 const db = require("./db/connection");
 const { addOrderListToDB } = require("./db/queries/menu_queries");
 // Web server config
