@@ -11,7 +11,7 @@ $(document).ready(function() {
           if (id === 2) {
             window.location.href='http://localhost:8080/orders';
           }
-          if (id === 1) {
+          else {
             window.location.href = 'http://localhost:8080/menu';
           }
 
