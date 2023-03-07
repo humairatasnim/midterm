@@ -60,7 +60,8 @@ app.use("/login", loginRoutes);
 // Separate them into separate routes files (see above).
 
 app.get("/", (req, res) => {
-  res.render("homepage");
+  const clientId = req.cookies.userId
+  res.render("homepage", {clientId: clientId});
 });
 
 app.post("/api/order", (req, res) => {
