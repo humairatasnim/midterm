@@ -1,10 +1,13 @@
 const twilio = require('twilio');
 require('dotenv').config();
 
-const accountSid = process.env.TWILLIO_SID; // Your Account SID from www.twilio.com/console
-const authToken = process.env.AUTH_TOKEN; // Your Auth Token from www.twilio.com/console
+const accountSid = process.env.TWILIO_ACCOUNT_SID // Your Account SID from www.twilio.com/console
+const authToken = process.env.TWILIO_AUTH_TOKEN; // Your Auth Token from www.twilio.com/console
 
+// console.log("account", accountSid);
+// console.log("auth token",authToken);
 const client = require('twilio')(accountSid, authToken);
+
 
 const orderCreated = function() {
   client.messages
@@ -16,6 +19,7 @@ const orderCreated = function() {
   .then((message) => console.log(message.sid));
 };
 
+orderCreated();
 
 
 const orderReady = function() {
